@@ -1,0 +1,40 @@
+﻿<Window x:Class="WebBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebBrowser"
+        mc:Ignorable="d"
+        Title="Web-browser" Height="450" Width="800" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Menu -->
+            <RowDefinition Height="25"></RowDefinition>
+            <!-- Search bar -->
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" VerticalAlignment="Top" Height="25">
+            <Menu Height="25" DockPanel.Dock="Top" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <MenuItem Header="_Datei" Height="26">
+                    <MenuItem Header="_Neues" />
+                    <MenuItem Header="_Öffnen" />
+                    <MenuItem Header="_Schliesen" Click="MenuItem_Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Bearbeiten">
+                    <MenuItem Header="_Ausschneiden" />
+                    <MenuItem Header="_Kopieren" />
+                    <MenuItem Header="_Einfügen" />
+                </MenuItem>
+                <MenuItem Header="_Hilfe">
+                    <MenuItem Header="_Hilfe Anzeigen" Click="MenuItem_Help_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/help.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+    </Grid>
+</Window>
