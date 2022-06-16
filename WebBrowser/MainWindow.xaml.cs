@@ -35,5 +35,44 @@ namespace WebBrowser
         {
             MessageBox.Show("Diese Funktion gibt es noch nicht");
         }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            string url = urlTxt.Text;
+
+            if (String.IsNullOrEmpty(url)) return;
+            if (url.Equals("about:blank")) return;
+            if (!url.StartsWith("http://") &&
+                !url.StartsWith("https://"))
+            {
+                url = "http://" + url;
+            }
+            try
+            {
+                navigator.Navigate(url);
+            }
+            catch (System.UriFormatException)
+            {
+                MessageBox.Show("Error");
+            }
+
+        }
+
+        private void Btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            if(navigator.CanGoBack)
+            {
+                navigator.GoBack();
+            }          
+        }
+
+        private void Btn_Forward_Click(object sender, RoutedEventArgs e)
+        {
+            if(navigator.CanGoForward)
+            {
+                navigator.GoForward();
+            }
+            
+        }
     }
 }
